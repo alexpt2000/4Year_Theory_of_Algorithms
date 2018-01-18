@@ -25,5 +25,5 @@
 ; https://beautifulracket.com/explainer/loops.html
 ; https://docs.racket-lang.org/guide/for.html
 
-(for ([p (in-range 200)]) ; iterator, in-range will the total number to in the loop
+(for ([p (in-range 100)]) ; iterator, in-range will the total number to in the loop
   (decide-prime p)) ; Pass the value to metho to the top
