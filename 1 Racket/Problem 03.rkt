@@ -6,9 +6,16 @@
 ;>(grcomdiv 64 30)
 ;2
 
+; Another way
+; (define (grcomdiv value1 value2)
+;   (gcd value1 value2))
 
-(define (grcomdiv value1 value2)
-   (gcd value1 value2))
+(define (grcomdiv a b)
+    (if (< a b)
+        (grcomdiv b a)
+            (if (= b 0)
+                a
+                (grcomdiv (modulo a b) b))))
 
 
 (grcomdiv 10 15)
