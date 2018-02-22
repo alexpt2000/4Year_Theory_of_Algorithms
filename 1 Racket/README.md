@@ -3,7 +3,8 @@
 
 ## Problem Sheet: Racket Theory of Algorithms
 The following exercises are related to the Racket programming language.
-1. Re-write the following expressions in Racket and evaluate them using a Racket interpreter/compiler.
+
+### 1. Re-write the following expressions in Racket and evaluate them using a Racket interpreter/compiler.
 ```
 (a) (3 × (5 + (10 ÷ 5)))
 (b) (2 + 3 + 4 + 5)
@@ -13,8 +14,8 @@ The following exercises are related to the Racket programming language.
 (f) (3 + 5) × (10 ÷ 2) + (1 + (5 + (2 + (10 ÷ 3))))
 ```
 
- Result
- ```
+ Racket code
+```racket
 (a) (* 3 (+ 5 (/ 10 5)))
 (b) (+ 2 3 4 5)
 (c) (+ 1 (+ 5 (+ 2 (/ 10 3))))
@@ -23,7 +24,7 @@ The following exercises are related to the Racket programming language.
 (f) (+ (* (+ 3 5) (/ 10 2)) (+ 1 (+ 5 (+ 2 (/ 10 3)))))
 ```
 
-2. Define a procedure discount that takes two arguments: an item’s initial price and a percentage discount. It should return the new price:
+### 2. Define a procedure discount that takes two arguments: an item’s initial price and a percentage discount. It should return the new price:
 
 ```
 > (discount 10 5)
@@ -32,7 +33,7 @@ The following exercises are related to the Racket programming language.
 14.95
 ```
 
-Result
+Racket code
 ```racket
 (define (discount value disc)
    (- value (/ (* value disc) 100.0)))
