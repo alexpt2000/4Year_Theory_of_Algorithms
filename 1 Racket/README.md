@@ -1,4 +1,4 @@
-# 4Year_Theory_of_Algorithms
+# 4 Year - Theory of Algorithms
 
 
 ## Problem Sheet: Racket Theory of Algorithms
@@ -35,6 +35,8 @@ The following exercises are related to the Racket programming language.
 
 Racket code
 ```racket
+#lang racket
+
 (define (discount value disc)
    (- value (/ (* value disc) 100.0)))
 
@@ -57,6 +59,8 @@ Output
 ```
 Racket code
 ```racket
+#lang racket
+
 (define (grcomdiv a b)
     (if (< a b)
         (grcomdiv b a)
@@ -119,15 +123,85 @@ million, find the sum of the even-valued terms.
 > (to-binary 23)
 10111
 ```
+Racket code
+```racket
+#lang racket
+
+(define (to-binary n)
+    (if (= n 0)
+    null
+    (cons (modulo n 2) (to-binary (/ (- n (modulo n 2)) 2)))))
+
+(to-binary 9)
+(to-binary 23)
+```
+Output
+```
+1001
+10111
+```
+
 ### 14. Write a function select that takes two elements, a list and a position in the list, and return the element of the list in that position.
 ```
 > (select (list 1 2 3 4 5) 1)
+2
+```
+Racket code
+```racket
+#lang racket
+(define (select l i)
+    (if (= i 0)
+        (car l)
+        (select (cdr l) (- i 1))))
+
+(select (list 1 2 3 4 5) 1)
+```
+Output
+```
 2
 ```
 
 ### 15. Write a function perms that takes a list as its only argument, and returns a list containing all permutations of that list.
 
 
+## Prime numbers
+
+Racket code
+```racket
+#lang racket
+
+(define (decide-prime p) 
+    (print p)
+        (define (non-divisible-by n d) ; anothe function, receive two values
+            (cond
+            ((= d 1) (println " True")) ; The value just can by one or himself
+            (else (if(= (remainder n d) 0) 
+                (println " False") ; Value remain 0, the value can divide by another numbers
+                (non-divisible-by n (- d 1)))))) 
+            (if (= p 1)
+                (println " True for number 1") ; If prime is equal one
+                (non-divisible-by p (- p 1))))
+
+(for ([p (in-range 100)]) ; iterator, in-range will the total number to in the loop
+  (decide-prime p)) ; Pass the value to metho to the top
+```
+Output for 10 Numbers
+```
+0" False"
+1" True for number 1"
+2" True"
+3" True"
+4" False"
+5" True"
+6" False"
+7" True"
+8" False"
+9" False"
+```
+
 ### References: 
 - https://rosettacode.org/wiki/Category:Programming_Tasks
 - https://ianmcloughlin.github.io/theoryofalgorithms
+- https://stackoverflow.com/questions/3345626/finding-a-prime-number-in-scheme-using-natural-recursion
+- https://beautifulracket.com/explainer/loops.html
+- https://docs.racket-lang.org/guide/for.html
