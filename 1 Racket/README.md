@@ -205,3 +205,12 @@ Output for 10 Numbers
 - https://stackoverflow.com/questions/3345626/finding-a-prime-number-in-scheme-using-natural-recursion
 - https://beautifulracket.com/explainer/loops.html
 - https://docs.racket-lang.org/guide/for.html
+
+# Author
+
+### Alexander Souza
+- G00317835@gmit.ie
+- alexpt2000@gmail.com
+- https://github.com/alexpt2000gmit
+- https://github.com/alexpt2000
+- www.linkedin.com/in/alexander-souza-3a841539/
