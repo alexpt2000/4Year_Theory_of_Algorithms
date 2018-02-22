@@ -1,28 +1,67 @@
 # 4 Year - Theory of Algorithms
 
 
-## Problem Sheet: Turing machines Theory of Algorithms
+## Problem Sheet: Turing machines
 ### 1. Consider the following Turing Machine.
 ```
 State Input Write Move Next
-q0      t      t    L   qa
+q0      U      U    L   qa
 q0      0      0    R   q0
 q0      1      1    R   q1
-q1      t      t    L   qf
+q1      U      U    L   qf
 q1      0      0    R   q1
 q1      1      1    R   q0
 ```
-
-
 Determine what happens when the Turing Machine is run with the following inputs initially on the tape.
+
 ```
 (a) 0001
+
+    0       0       0       1
+q0      q0      q0      q0      q1
+                                qf      Fail
+```
+```
 (b) 0111
+
+        0       1       1       1
+    q0      q0      q1      q0      q1
+                                    qf      Fail        
+```
+```
 (c) 0110
+
+        0       1       1       0
+    q0      q0      q1      q0      q0
+                                    qa      Accept        
+```
+```
 (d) 0101010001
+
+        0       1       0       1       0       1       0       0       0       1
+    q0      q0      q1      q1      q0      q0      q1      q1      q1      q1      q0
+                                                                                    qa      Accept
+```
+```
 (e) 00000000000000111
+
+    0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   1
+q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q1  q0  q1
+                                                                    qf      Fail    
+```
+```
 (f) 00
-(g) 
+
+        0       0
+    q0      q0      q0
+                    qa      Accept
+```
+```
+(g)
+
+    q0
+    qa      Accept
+
 ```
 
 ### 2. Give the state table for a Turing Machine that appends a parity bit to a tape with a string of consecutive 0’s and 1’s.
@@ -56,6 +95,7 @@ Then the number of the tape is 2 + 4 + 16 = 22.
 
 
 ### References: 
+- http://www.cs.bath.ac.uk/~ag248/CM10020/WorkedSolutions.pdf 
 
 
 # Author
