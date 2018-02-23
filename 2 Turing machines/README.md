@@ -66,7 +66,18 @@ q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q0  q1  q0  q1
 
 ### 2. Give the state table for a Turing Machine that appends a parity bit to a tape with a string of consecutive 0’s and 1’s.
 
+```
+State Input Write Move Next
+q0      U      0    L   qa
+q0      0      0    R   q0
+q0      1      1    R   q1
+q1      U      1    L   qf
+q1      0      0    R   q1
+q1      1      1    R   q0
+```
+
 ### 3. Construct a Turing Machine to compute the sequence 0 t 1 t 0 t 1 t 0 t . . ., that is, 0 blank 1 blank 0 blank, etc.
+
 
 ### 4. Give the state table for a Turing Machine that multiplies a string of consecutive 0’s and 1’s by 2. The machine should treat the initial contents of the tape as a natural number written in binary form, with the least significant bit at the end. That is, if the contents of the tape are 01101, then the right-most 1 represents the number 1, the middle 1 represents the number 4 and the left-most 1 represents the number 8. Then the number on the tape is 8 + 4 + 1 = 13.
 
