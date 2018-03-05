@@ -85,6 +85,49 @@ For example:
 > (rcycle (list 1 2 3 4 5))
 '(5 1 2 3 4)
 ```
+Racket code - lcycle
+```racket
+#lang racket
+
+(define (my-append list1 list2)
+  (if (null? list1)
+      list2
+      (cons 
+        (car list1) (my-append (cdr list1) list2))))
+
+
+(define (lcycle list)
+  (if (null? list)
+      '()
+      (my-append 
+          (cdr list)
+            (cons (car list)
+              '()
+                  ))))
+
+(lcycle (list 1 2 3 4 5))
+```
+
+Racket code - rcycle
+```racket
+#lang racket
+
+(define (remove_last lst)
+  (if(null? (cdr lst))
+     null
+     (cons (car lst) (remove_last (cdr lst)))))
+
+(define (last_element l)
+    (cond
+      [(null? (cdr l)) (car l)]
+      [else (last_element (cdr l))]))
+
+(define (rcycle liste)
+  (cons (last_element liste) (remove_last liste)))
+
+  
+(rcycle (list 1 2 3 4 5))
+```
 
 ### 4. Write a function sublsum in Racket that takes a list (of integers) as input and returns a list of sublists of it that sum to zero. For this problem, you can use the combinations built-in function. Note the order of the sublists and their elements doesn’t matter. 
 
