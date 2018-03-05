@@ -128,10 +128,30 @@ Output
 
 ### 4. Write a function sublsum in Racket that takes a list (of integers) as input and returns a list of sublists of it that sum to zero. For this problem, you can use the combinations built-in function. Note the order of the sublists and their elements doesn’t matter. 
 
-For example:
+Racket code
+```racket
+#lang racket
+
+(define (sumList l)
+ (if(null? l) 0 
+   (+ (car l)(sumList (cdr l)))))
+
+(define (sublsum l)
+  (for ([i (combinations l)])
+    (if (= (sumList i) 0)
+        (println i)
+        '()
+    )))
+
 ```
-> (sublsum (list 1 2 3 4 -5))
-'((2 3 -5) (-5 1 4))
+
+Output
+```
+(sublsum (list 1 2 3 4 -5))
+'()
+'(2 3 -5)
+'(1 4 -5)
+
 
 > (sublsum (list 1 2 3 4 5))
 '()
