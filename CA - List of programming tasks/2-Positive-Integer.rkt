@@ -9,7 +9,7 @@
         (collatz-list (+ (* 3 n) 1))))))
 
 
-(collatz-list 2)
+(collatz-list 9)
 
 
 ;> (collatz-list 5)

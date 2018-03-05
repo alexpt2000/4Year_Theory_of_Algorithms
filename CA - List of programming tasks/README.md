@@ -48,16 +48,6 @@ Output for 10 Numbers
 End the recursion when (or if) the number becomes 1. Call the function collatz-list.
 So, collatz-list should return a list whose first element is n0, the second element
 is n1, and so on. For example:
-```
-> (collatz-list 5)
-'(5 16 8 4 2 1)
-
-> (collatz-list 9)
-'(9 28 14 7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1)
-
-> (collatz-list 2)
-'(2 1)
-```
 
 Racket code
 ```racket
@@ -70,21 +60,21 @@ Racket code
     (else
       (cons n 
         (collatz-list (+ (* 3 n) 1))))))
+```
+Output
+```
+> (collatz-list 5)
+'(5 16 8 4 2 1)
 
+> (collatz-list 9)
+'(9 28 14 7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1)
 
-(collatz-list 2)
+> (collatz-list 2)
+'(2 1)
 ```
 
 ### 3. Write, from scratch, two functions in Racket. The first is called lcycle. It takes a list as input and returns the list cyclically shifted one place to the left. The second is called rcycle, and it shifts the list cyclically shifted one place to the right.
 
-For example:
-```
-> (lcycle (list 1 2 3 4 5))
-'(2 3 4 5 1)
-
-> (rcycle (list 1 2 3 4 5))
-'(5 1 2 3 4)
-```
 Racket code - lcycle
 ```racket
 #lang racket
@@ -104,9 +94,13 @@ Racket code - lcycle
             (cons (car list)
               '()
                   ))))
-
-(lcycle (list 1 2 3 4 5))
 ```
+Output
+```
+> (lcycle (list 1 2 3 4 5))
+'(2 3 4 5 1)
+```
+
 
 Racket code - rcycle
 ```racket
@@ -125,8 +119,11 @@ Racket code - rcycle
 (define (rcycle liste)
   (cons (last_element liste) (remove_last liste)))
 
-  
-(rcycle (list 1 2 3 4 5))
+```
+Output
+```
+> (rcycle (list 1 2 3 4 5))
+'(5 1 2 3 4)
 ```
 
 ### 4. Write a function sublsum in Racket that takes a list (of integers) as input and returns a list of sublists of it that sum to zero. For this problem, you can use the combinations built-in function. Note the order of the sublists and their elements doesn’t matter. 
