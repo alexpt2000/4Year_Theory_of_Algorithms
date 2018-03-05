@@ -62,7 +62,7 @@ Racket code
         (collatz-list (+ (* 3 n) 1))))))
 ```
 Output
-```
+```racket
 > (collatz-list 5)
 '(5 16 8 4 2 1)
 
@@ -96,7 +96,7 @@ Racket code - lcycle
                   ))))
 ```
 Output
-```
+```racket
 > (lcycle (list 1 2 3 4 5))
 '(2 3 4 5 1)
 ```
@@ -121,7 +121,7 @@ Racket code - rcycle
 
 ```
 Output
-```
+```racket
 > (rcycle (list 1 2 3 4 5))
 '(5 1 2 3 4)
 ```
@@ -146,7 +146,7 @@ Racket code
 ```
 
 Output
-```
+```racket
 (sublsum (list 1 2 3 4 -5))
 '()
 '(2 3 -5)
