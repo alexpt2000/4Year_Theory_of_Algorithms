@@ -59,6 +59,22 @@ is n1, and so on. For example:
 '(2 1)
 ```
 
+Racket code
+```racket
+#lang racket
+
+(define (collatz-list n)
+  (cond
+  ((= n 1) '(1))((even? n)
+  (cons n (collatz-list (/ n 2))))
+    (else
+      (cons n 
+        (collatz-list (+ (* 3 n) 1))))))
+
+
+(collatz-list 2)
+```
+
 ### 3. Write, from scratch, two functions in Racket. The first is called lcycle. It takes a list as input and returns the list cyclically shifted one place to the left. The second is called rcycle, and it shifts the list cyclically shifted one place to the right.
 
 For example:
@@ -88,6 +104,7 @@ For example:
 - https://stackoverflow.com/questions/3345626/finding-a-prime-number-in-scheme-using-natural-recursion
 - https://beautifulracket.com/explainer/loops.html
 - https://docs.racket-lang.org/guide/for.html
+- https://plt.eecs.northwestern.edu/snapshots/current/pdf-doc/guide.pdf
 
 # Author
 
