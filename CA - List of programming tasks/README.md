@@ -147,7 +147,7 @@ Racket code
 
 Output
 ```racket
-(sublsum (list 1 2 3 4 -5))
+> (sublsum (list 1 2 3 4 -5))
 '()
 '(2 3 -5)
 '(1 4 -5)
