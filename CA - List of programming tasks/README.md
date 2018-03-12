@@ -157,6 +157,47 @@ Output
 '()
 ```
 
+5. Write a function hamming-weight in Racket that takes a list l as input and returns the number of non-zero elements in it. 
+
+Racket code
+```racket
+#lang racket
+
+(define (hamming-weight l) 
+        (if (null? l)
+            0
+            (+ (car l) (hamming-weight (cdr l)))
+            ))
+
+```
+
+Output
+```racket
+> (hamming-weight (list 1 0 1 0 1 1 1 0))
+5
+```
+
+6. Write a function hamming-distance in Racket that takes two lists and returns the number of positions in which they differ. 
+
+Racket code
+```racket
+#lang racket
+
+(define (hamming-distance lst1 lst2)               
+  (cond ((null? lst1) (null? lst2) 0)                     
+        ((not(= (car lst1) (car lst2)))                  
+         (+ 1 (hamming-distance (cdr lst1) (cdr lst2))))  
+        (else(hamming-distance (cdr lst1) (cdr lst2)))))  
+
+```
+
+Output
+```racket
+> (hamming-distance (list 1 0 1 0 1 1 1 0) (list 1 1 1 1 0 0 0 0))
+5
+
+```
+
 ### References: 
 - PLT Inc. Racket – a programmable programming language.
 - https://rosettacode.org/wiki/Category:Programming_Tasks
