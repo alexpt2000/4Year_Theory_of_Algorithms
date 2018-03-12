@@ -157,7 +157,7 @@ Output
 '()
 ```
 
-5. Write a function hamming-weight in Racket that takes a list l as input and returns the number of non-zero elements in it. 
+### 5. Write a function hamming-weight in Racket that takes a list l as input and returns the number of non-zero elements in it. 
 
 Racket code
 ```racket
@@ -177,7 +177,7 @@ Output
 5
 ```
 
-6. Write a function hamming-distance in Racket that takes two lists and returns the number of positions in which they differ. 
+### 6. Write a function hamming-distance in Racket that takes two lists and returns the number of positions in which they differ. 
 
 Racket code
 ```racket
