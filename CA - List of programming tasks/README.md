@@ -198,6 +198,36 @@ Output
 
 ```
 
+
+### 7. Write a function maj in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing a 1 where two or more of x, y and z contain 1’s, and 0 otherwise. For example:
+
+Output
+```racket
+> (maj (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
+'(0 0 0 1 0 1 1 1)
+```
+
+
+
+### 8. Write a function chse in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing the elements of y in the positions where x is 1 and the elements of z otherwise. For example:
+
+
+Output
+```racket
+> (chse (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
+'(0 1 0 1 0 0 1 1)
+```
+
+
+### 9. Write a function sod2 in Racket that takes three lists x, y and z of equal length and  containing only 0’s and 1’s. It should return a list containing a 1 where the number of 1’s in a given position in x, y and z contains an odd nubmer of 1’s, and 0 otherwise.
+
+Output
+```racket
+> (sod2 (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
+'(0 1 1 0 1 0 0 1)
+```
+
+
 ### References: 
 - PLT Inc. Racket – a programmable programming language.
 - https://rosettacode.org/wiki/Category:Programming_Tasks
