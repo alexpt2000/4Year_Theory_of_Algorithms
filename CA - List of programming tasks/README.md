@@ -41,7 +41,7 @@ Output for 10 Numbers
 ```
 
 
-### 2. Write, from scratch, a function in Racket that takes a positive integer n0 as input and returns a list by recursively applying the following operation, starting with the input number.
+## 2. Write, from scratch, a function in Racket that takes a positive integer n0 as input and returns a list by recursively applying the following operation, starting with the input number.
 
 ![Screencast](Screenshot/CA2018_2.png)
 
@@ -73,7 +73,7 @@ Output
 '(2 1)
 ```
 
-### 3. Write, from scratch, two functions in Racket. The first is called lcycle. It takes a list as input and returns the list cyclically shifted one place to the left. The second is called rcycle, and it shifts the list cyclically shifted one place to the right.
+## 3. Write, from scratch, two functions in Racket. The first is called lcycle. It takes a list as input and returns the list cyclically shifted one place to the left. The second is called rcycle, and it shifts the list cyclically shifted one place to the right.
 
 Racket code - lcycle
 ```racket
