@@ -8,7 +8,7 @@ Remember to plan your work and make regular commits to your repository. The inst
 ## 1. Write, from scratch, a function in Racket that uses a brute-force algorithm that takes a single positive integer and return true if the number is a prime and false otherwise. Call the function decide-prime.
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (decide-prime p) 
@@ -27,7 +27,7 @@ Racket code
   (decide-prime p)) ; Pass the value to metho to the top
 ```
 Output for 10 Numbers
-```
+```scheme
 0" False"
 1" True for number 1"
 2" True"
@@ -50,7 +50,7 @@ So, collatz-list should return a list whose first element is n0, the second elem
 is n1, and so on. For example:
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (collatz-list n)
@@ -62,7 +62,7 @@ Racket code
         (collatz-list (+ (* 3 n) 1))))))
 ```
 Output
-```racket
+```scheme
 > (collatz-list 5)
 '(5 16 8 4 2 1)
 
@@ -76,7 +76,7 @@ Output
 ## 3. Write, from scratch, two functions in Racket. The first is called lcycle. It takes a list as input and returns the list cyclically shifted one place to the left. The second is called rcycle, and it shifts the list cyclically shifted one place to the right.
 
 Racket code - lcycle
-```racket
+```scheme
 #lang racket
 
 (define (my-append list1 list2)
@@ -96,14 +96,14 @@ Racket code - lcycle
                   ))))
 ```
 Output
-```racket
+```scheme
 > (lcycle (list 1 2 3 4 5))
 '(2 3 4 5 1)
 ```
 
 
 Racket code - rcycle
-```racket
+```scheme
 #lang racket
 
 (define (remove_last lst)
@@ -121,7 +121,7 @@ Racket code - rcycle
 
 ```
 Output
-```racket
+```scheme
 > (rcycle (list 1 2 3 4 5))
 '(5 1 2 3 4)
 ```
@@ -129,7 +129,7 @@ Output
 ## 4. Write a function sublsum in Racket that takes a list (of integers) as input and returns a list of sublists of it that sum to zero. For this problem, you can use the combinations built-in function. Note the order of the sublists and their elements doesn’t matter. 
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (sumList l)
@@ -146,7 +146,7 @@ Racket code
 ```
 
 Output
-```racket
+```scheme
 > (sublsum (list 1 2 3 4 -5))
 '()
 '(2 3 -5)
@@ -160,7 +160,7 @@ Output
 ## 5. Write a function hamming-weight in Racket that takes a list l as input and returns the number of non-zero elements in it. 
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (hamming-weight l) 
@@ -172,7 +172,7 @@ Racket code
 ```
 
 Output
-```racket
+```scheme
 > (hamming-weight (list 1 0 1 0 1 1 1 0))
 5
 ```
@@ -180,7 +180,7 @@ Output
 ## 6. Write a function hamming-distance in Racket that takes two lists and returns the number of positions in which they differ. 
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (hamming-distance lst1 lst2)               
@@ -192,7 +192,7 @@ Racket code
 ```
 
 Output
-```racket
+```scheme
 > (hamming-distance (list 1 0 1 0 1 1 1 0) (list 1 1 1 1 0 0 0 0))
 5
 
@@ -202,7 +202,7 @@ Output
 ## 7. Write a function maj in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing a 1 where two or more of x, y and z contain 1’s, and 0 otherwise. For example:
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (maj x y z)
@@ -219,7 +219,7 @@ Racket code
 ```
 
 Output
-```racket
+```scheme
 > (maj (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
 '(0 0 0 1 0 1 1 1)
 ```
@@ -229,7 +229,7 @@ Output
 ## 8. Write a function chse in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing the elements of y in the positions where x is 1 and the elements of z otherwise. For example:
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (chse x y z)
@@ -244,7 +244,7 @@ Racket code
 ```
 
 Output
-```racket
+```scheme
 > (chse (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
 '(0 1 0 1 0 0 1 1)
 ```
@@ -252,8 +252,24 @@ Output
 
 ## 9. Write a function sod2 in Racket that takes three lists x, y and z of equal length and  containing only 0’s and 1’s. It should return a list containing a 1 where the number of 1’s in a given position in x, y and z contains an odd nubmer of 1’s, and 0 otherwise.
 
+
+Racket code
+```scheme
+#lang racket
+
+(define (sod2 x y z)
+  (cond [(null?  x) '()]                                ;if any lists are empty, if empty returns '() 
+    [(null?  y) '()]
+    [(null?  z) '()]
+    [else
+      (if(=(modulo (+ (car x)(car y)(car z)) 2) 0)      ;if sum of first elements divided by 2 equals zero, than is even                  
+             (cons 0 (sod2 (cdr x)(cdr y)(cdr z)))      ;to even add 0 to new list  
+             (cons 1 (sod2 (cdr x)(cdr y)(cdr z))))]))  ;to odd add 1 to new list  
+
+```
+
 Output
-```racket
+```scheme
 > (sod2 (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
 '(0 1 1 0 1 0 0 1)
 ```
@@ -269,7 +285,7 @@ for all i. Then add all of those to get d.
 
 
 Racket code
-```racket
+```scheme
 #lang racket
 
 (define (lstq l m)                                     
@@ -280,7 +296,7 @@ Racket code
 ```
 
 Output
-```racket
+```scheme
 > (lstq (list 4.5 5.1 6.2 7.8) (list 1.1 -0.1 6.1 3.8))
 54.61
 
