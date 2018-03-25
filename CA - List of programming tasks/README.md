@@ -5,7 +5,7 @@
 The following exercises should be completed in the Racket programming language.
 Remember to plan your work and make regular commits to your repository. The instructions for submitting your work are given on the Moodle page. Note that “from scratch” means using only cons, car, cdr, define, lambda, if, null, null?, cond, map, = and the basic numerical operators (+, -, *, /, modulo). Other basic functions may be allowed, but please confirm their use with the lecturer.
 
-### 1. Write, from scratch, a function in Racket that uses a brute-force algorithm that takes a single positive integer and return true if the number is a prime and false otherwise. Call the function decide-prime.
+## 1. Write, from scratch, a function in Racket that uses a brute-force algorithm that takes a single positive integer and return true if the number is a prime and false otherwise. Call the function decide-prime.
 
 Racket code
 ```racket
@@ -126,7 +126,7 @@ Output
 '(5 1 2 3 4)
 ```
 
-### 4. Write a function sublsum in Racket that takes a list (of integers) as input and returns a list of sublists of it that sum to zero. For this problem, you can use the combinations built-in function. Note the order of the sublists and their elements doesn’t matter. 
+## 4. Write a function sublsum in Racket that takes a list (of integers) as input and returns a list of sublists of it that sum to zero. For this problem, you can use the combinations built-in function. Note the order of the sublists and their elements doesn’t matter. 
 
 Racket code
 ```racket
@@ -157,7 +157,7 @@ Output
 '()
 ```
 
-### 5. Write a function hamming-weight in Racket that takes a list l as input and returns the number of non-zero elements in it. 
+## 5. Write a function hamming-weight in Racket that takes a list l as input and returns the number of non-zero elements in it. 
 
 Racket code
 ```racket
@@ -177,7 +177,7 @@ Output
 5
 ```
 
-### 6. Write a function hamming-distance in Racket that takes two lists and returns the number of positions in which they differ. 
+## 6. Write a function hamming-distance in Racket that takes two lists and returns the number of positions in which they differ. 
 
 Racket code
 ```racket
@@ -199,7 +199,24 @@ Output
 ```
 
 
-### 7. Write a function maj in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing a 1 where two or more of x, y and z contain 1’s, and 0 otherwise. For example:
+## 7. Write a function maj in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing a 1 where two or more of x, y and z contain 1’s, and 0 otherwise. For example:
+
+Racket code
+```racket
+#lang racket
+
+(define (maj x y z)
+  (cond [(null?  x) '()]
+    [(null?  y) '()]
+    [(null?  z) '()]
+    [else
+      (if(=(car x)(car y))
+         (cons (car x) (maj (cdr x)(cdr y)(cdr z)))
+         (if (= (car y) (car z))
+             (cons (car y)(maj (cdr x)(cdr y)(cdr z)))
+             (cons (car x)(maj (cdr x)(cdr y)(cdr z)))))]))  
+
+```
 
 Output
 ```racket
@@ -209,8 +226,22 @@ Output
 
 
 
-### 8. Write a function chse in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing the elements of y in the positions where x is 1 and the elements of z otherwise. For example:
+## 8. Write a function chse in Racket that takes three lists x, y and z of equal length and containing only 0’s and 1’s. It should return a list containing the elements of y in the positions where x is 1 and the elements of z otherwise. For example:
 
+Racket code
+```racket
+#lang racket
+
+(define (chse x y z)
+  (cond [(null?  x) '()]                                  ;checks if any lists are empty, if yes, returns '()
+    [(null?  y) '()]
+    [(null?  z) '()]
+    [else
+      (if(= 1 (car x))                                    ;if element in list x is 1
+         (cons (car y)(chse (cdr x)(cdr y)(cdr z)))       ;adds element from y to new list 
+         (cons (car z)(chse (cdr x)(cdr y)(cdr z))))]))   ;adds element from z to new list  
+
+```
 
 Output
 ```racket
@@ -219,7 +250,7 @@ Output
 ```
 
 
-### 9. Write a function sod2 in Racket that takes three lists x, y and z of equal length and  containing only 0’s and 1’s. It should return a list containing a 1 where the number of 1’s in a given position in x, y and z contains an odd nubmer of 1’s, and 0 otherwise.
+## 9. Write a function sod2 in Racket that takes three lists x, y and z of equal length and  containing only 0’s and 1’s. It should return a list containing a 1 where the number of 1’s in a given position in x, y and z contains an odd nubmer of 1’s, and 0 otherwise.
 
 Output
 ```racket
@@ -229,7 +260,7 @@ Output
 
 
 
-### 10. Write a function lstq in Racket that takes as arguments two lists l and m of equal length and containing numbers. It should return d, the distance given by the sum of the square residuals between the numbers in the lists:
+## 10. Write a function lstq in Racket that takes as arguments two lists l and m of equal length and containing numbers. It should return d, the distance given by the sum of the square residuals between the numbers in the lists:
 
 ![Screencast](Screenshot/CA2018_10.png)
 
@@ -255,7 +286,7 @@ Output
 
 ```
 
-### References: 
+# References: 
 - PLT Inc. Racket – a programmable programming language.
 - https://rosettacode.org/wiki/Category:Programming_Tasks
 - https://ianmcloughlin.github.io/theoryofalgorithms
